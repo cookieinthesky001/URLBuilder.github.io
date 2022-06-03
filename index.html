@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <!-- Boostrap 4 -->
+        <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- D3.js -->
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <!-- Date picker -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        <!-- Customized css-->
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <!-- header -->
+        <!-- header -->
+        <!-- form section -->
+        <div class="">
+            <div class="row jumbotron jumbotron-fluid" id="header">
+                <div class="col-8 offset-2">
+                    <h1>Digital Campaign URL Builder</h1>
+                </div>
+            </div>
+                <div class="col-8 offset-2">
+                  <p class="subheader_text mb-5">
+                    This tool allows you to easily add campaign parameters to URLs so you can track landing page in Adobe Analytics.
+                </p>
+                    <h3>Enter the landing page URL and campaign information</h6>
+                    <p class="subheader_text">
+                        Fill out the required fields (marked with *) in the form below, and once complete the full landing page URL will be generated for you. 
+                        <!-- Note: the generated URL is automatically updated as you make changes. -->
+                    </p>
+                </div>
+                <form class="col-8 offset-2">
+                    <div class="form-group">
+                      <label for="urlinput">* Website URL</label>
+                      <input type="text" class="form-control" id="url_input" placeholder="Input your URL here">
+                      <p class="form_info" id="urlwarning">The full website URL (e.g. https://www.example.com)</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="channelinput">* Channel</label>
+                      <select multiple class="form-control" id="channel_input">
+                          <option>Email(eml-ext)</option>
+                          <option>Social Media(LinkedIn)</option>
+                          <option>Paid Social Media(pso-ext)</option>
+                          <option>Paid Search(sem-ext)</option>
+                          <option>Display(ban-ext)</option>
+                          <option>Affiliated Marketing(aff-ext)</option>
+                      </select>
+                      <p class="form_info" id="channelwarning">Marketing Channel: (e.g. email)</p>
+                    </div>
+                    <!-- <div class="form-group">
+                      <label for="channelinput">* Channel</label>
+                      <input type="text" class="form-control" id="channel_input" placeholder="Input your channel">
+                      <p class="form_info">Marketing Channel: (e.g. email)</p>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="campaigninput">* Campaign Name</label>
+                        <input type="text" class="form-control" id="campaign_input" placeholder="Input your campaign name here">
+                        <p class="form_info" id="namewarning">Campaign Name (e.g. GB_sep_campaign)</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="Date">Campaign Date</label>
+                        <input type="text" class="form-control" id="date_input" name="daterange" placeholder="Input your campaign start date here" value="">
+                        <p class="form_info">Campaign date range (e.g. 06/01/2021 - 07/01/2021)</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="language">Language</label>
+                        <input type="text" class="form-control" id="language" placeholder="">
+                        <p class="form_info">Language: (e.g. en, fr, jp, kr, cn)</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="productname">Product Name</label>
+                        <input type="text" class="form-control" id="product_name" placeholder="">
+                        <p class="form_info">The name of the product (e.g. Health & Dental)</p>
+                      </div>
+                      <div>
+                        <p>
+                            <a class="btn btn-dark mr-2" data-toggle="collapse" href="#more" aria-expanded="false" aria-controls="collapseExample">
+                              More params to fill out...
+                            </a>
+                            <a onClick="window.location.reload();" class="btn btn-dark" href="">Clear</a>
+                        </p>
+                      </div>
+                        <div class="collapse" id="more">
+                              <div class="form-group">
+                                  <label for="targeting">Targeting Tactic</label>
+                                  <input type="text" class="form-control" id="targeting" placeholder="">
+                                  <p class="form_info">Describes the targeting tactic used for the campaign (e.g. Brand, Generic, BT, AT, CT)</p>
+                              </div>
+                                <div class="form-group">
+                                  <label for="kpi">KPI</label>
+                                  <input type="text" class="form-control" id="kpi" placeholder="">
+                                  <p class="form_info">Describes the purpose of the campaign (e.g. RF, MF, LF)</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="source">Source</label>
+                                    <input type="text" class="form-control" id="source" placeholder="">
+                                    <p class="form_info">Describes the source of the ads and varies (e.g. Facebook, Amazon, Xaxis Canada)</p>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="keyword">Creative name / Keyword</label>
+                                    <input type="text" class="form-control" id="keyword" placeholder="">
+                                    <p class="form_info">Describes the creative name for the display and social ads and the keyword for paid search (e.g. PaymentFlexibility, HomeEquity)</p>
+                                  </div>
+                      </div>
+                  </form>
+            </div>
+        </div>
+        <!-- output 1 -->
+        <div class="out_box col-8 offset-2 mb-5 mt-5">
+          <label for="">Universal Tracking URL</label>
+          <p>Use this URL in any promotional channels you want to be associated with this custom campaign.</p>
+          <textarea class="form-control" id="output" rows="3"></textarea>
+          <br>
+            <p class="float-right">
+              <a class="btn btn-dark text-white mr-2" onclick="copyFunction()" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</a>
+              <a onClick="window.location.reload();" class="btn btn-dark" href="">Clear</a>
+            </p>
+        </div>
+        
+        <!-- output 2 -->
+        <!-- <div class="out_box col-8 offset-2 mb-5">
+          <label for="">Email CTA</label>
+          <textarea class="form-control" id="output2" rows="3"></textarea>
+          <br>
+            <p class="float-right">
+              <a class="btn btn-dark text-white" onclick="copyFunction2()" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</a>
+              <a onClick="window.location.reload();" class="btn btn-dark" href="">Clear</a>
+            </p>
+        </div> -->
+
+      
+        <!-- form section -->
+        <script src="./form.js"></script>
+        <!-- <script src="./main.js"></script> -->
+    </body>
+</html>

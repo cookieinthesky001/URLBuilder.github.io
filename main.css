@@ -1,0 +1,45 @@
+h3 {
+    color: #666666;
+}
+
+#header {
+    background-color:#00AA59;
+    color: white;
+}
+
+.subheader_text {
+    color: #333333;
+    font-size: 1rem;
+    padding: 1rem 0;
+}
+
+label {
+    font-weight: 600;
+}
+
+.form_info {
+    font-size: 0.8rem;
+    color: grey;
+}
+
+.out_box {
+    border: 1px solid grey;
+    background-color: #eee;
+    padding: 2rem;
+    overflow: auto;
+    box-sizing:border-box
+}
+
+.out_box > label {
+    font-size: 1.5rem;
+}
+
+#output, #output2{
+    font-size: 1.5rem;
+    color: red;
+    text-align: left;
+}
+
+#copybutton {
+    display: none;
+}
