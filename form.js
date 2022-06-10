@@ -45,8 +45,21 @@ function copyFunction2() {
 
 // Validate the form
 d3.selectAll("input").on("keyup", function(){
-    var url = d3.select("#url_input").node().value + "?scid="
 
+    // var url = d3.select("#url_input").node().value + "?scid="
+
+    if(d3.select("#url_input").node().value){
+        var url_temp = d3.select("#url_input").node().value
+        var pattern = /\?/
+        var result = pattern.test(url_temp)
+        if (result){
+            
+            var url = d3.select("#url_input").node().value + "&scid="
+        
+        } else {var url = d3.select("#url_input").node().value + "?scid=" } 
+        console.log(url)
+    }
+       
     if(d3.select("#channel_input").node().value){
         var str0 = d3.select("#channel_input").node().value
         var re0 = /.+\((\S+)\)/;
